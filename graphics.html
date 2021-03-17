@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<head>
+<header><a href="portfolio.html">→Home</a></header>
+
+<style>
+   body {
+    background-color: #CCCCFF;
+    padding-top: 100px;
+   }
+   body {
+    cursor: url('cursor.cur'), auto;
+   }
+
+   body{
+    font-family: 'Raleway Dots', cursive;
+   }
+
+   header {
+     position: fixed;
+     top: 0px;
+     right: 0px;
+     height: 75px;
+     padding: 2rem;
+     background-color: #CCCCFF;
+     width: 100%;
+     font-weight: bold;
+     display: flex;
+     justify-content: space-between;
+     text-align: right;
+     z-index: 1;
+     font-family: 'Raleway';
+     font-size: 1.5em;
+     color: #16433D;
+
+   }
+
+   ::selection {
+				background-color: #16433D;
+				color: #CCCCFF;
+   }
+
+   body::-webkit-scrollbar {
+      display: none;
+   }
+
+   p {
+      font-family: 'Raleway';
+      font-size: 1.2em;
+      text-align: left;
+      padding-left: 40px;
+      margin-top: 0;
+      /* line-height: 2.1em; */
+      /* margin-bottom: 0.2em; */
+      color: #16433D;
+   }
+
+   img {
+      display: block;
+      height: auto;
+      margin-top: 40px;
+      z-index: 2;
+      position: left;
+      height: auto;
+   }
+
+   h1{
+     font-family: 'Raleway';
+     font-style: oblique;
+     font-weight: bold;
+     font-size: 1.5em;
+     text-align: left;
+     margin: 0;
+     padding-left: 40px;
+     padding-top: 30px;
+     margin-bottom: 0;
+     /* line-height: 2.1em; */
+     /* margin-bottom: 0.2em; */
+     color: #16433D;
+   }
+
+   .mySlides {display:none position: left;}
+   .w3-left, .w3-right, .w3-badge {cursor:pointer}
+   .w3-badge {height:13px;width:13px;padding:0}
+
+   hr{
+     margin-top: 50px;
+     margin-bottom: 0;
+   }
+
+</style>
+<script type="text/javascript">
+// <![CDATA[
+var colour="random"; // in addition to "random" can be set to any valid colour eg "#f0f" or "red"
+var sparkles=50;
+
+/****************************
+*  Tinkerbell Magic Sparkle *
+*(c)2005-13 mf2fm web-design*
+*  http://www.mf2fm.com/rv  *
+* DON'T EDIT BELOW THIS BOX *
+****************************/
+var x=ox=400;
+var y=oy=300;
+var swide=800;
+var shigh=600;
+var sleft=sdown=0;
+var tiny=new Array();
+var star=new Array();
+var starv=new Array();
+var starx=new Array();
+var stary=new Array();
+var tinyx=new Array();
+var tinyy=new Array();
+var tinyv=new Array();
+
+window.onload=function() { if (document.getElementById) {
+  var i, rats, rlef, rdow;
+  for (var i=0; i<sparkles; i++) {
+    var rats=createDiv(3, 3);
+    rats.style.visibility="hidden";
+    rats.style.zIndex="999";
+    document.body.appendChild(tiny[i]=rats);
+    starv[i]=0;
+    tinyv[i]=0;
+    var rats=createDiv(5, 5);
+    rats.style.backgroundColor="transparent";
+    rats.style.visibility="hidden";
+    rats.style.zIndex="999";
+    var rlef=createDiv(1, 5);
+    var rdow=createDiv(5, 1);
+    rats.appendChild(rlef);
+    rats.appendChild(rdow);
+    rlef.style.top="2px";
+    rlef.style.left="0px";
+    rdow.style.top="0px";
+    rdow.style.left="2px";
+    document.body.appendChild(star[i]=rats);
+  }
+  set_width();
+  sparkle();
+}}
+
+function sparkle() {
+  var c;
+  if (Math.abs(x-ox)>1 || Math.abs(y-oy)>1) {
+    ox=x;
+    oy=y;
+    for (c=0; c<sparkles; c++) if (!starv[c]) {
+      star[c].style.left=(starx[c]=x)+"px";
+      star[c].style.top=(stary[c]=y+1)+"px";
+      star[c].style.clip="rect(0px, 5px, 5px, 0px)";
+      star[c].childNodes[0].style.backgroundColor=star[c].childNodes[1].style.backgroundColor=(colour=="random")?newColour():colour;
+      star[c].style.visibility="visible";
+      starv[c]=50;
+      break;
+    }
+  }
+  for (c=0; c<sparkles; c++) {
+    if (starv[c]) update_star(c);
+    if (tinyv[c]) update_tiny(c);
+  }
+  setTimeout("sparkle()", 40);
+}
+
+function update_star(i) {
+  if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
+  if (starv[i]) {
+    stary[i]+=1+Math.random()*3;
+    starx[i]+=(i%5-2)/5;
+    if (stary[i]<shigh+sdown) {
+      star[i].style.top=stary[i]+"px";
+      star[i].style.left=starx[i]+"px";
+    }
+    else {
+      star[i].style.visibility="hidden";
+      starv[i]=0;
+      return;
+    }
+  }
+  else {
+    tinyv[i]=50;
+    tiny[i].style.top=(tinyy[i]=stary[i])+"px";
+    tiny[i].style.left=(tinyx[i]=starx[i])+"px";
+    tiny[i].style.width="2px";
+    tiny[i].style.height="2px";
+    tiny[i].style.backgroundColor=star[i].childNodes[0].style.backgroundColor;
+    star[i].style.visibility="hidden";
+    tiny[i].style.visibility="visible"
+  }
+}
+
+function update_tiny(i) {
+  if (--tinyv[i]==25) {
+    tiny[i].style.width="1px";
+    tiny[i].style.height="1px";
+  }
+  if (tinyv[i]) {
+    tinyy[i]+=1+Math.random()*3;
+    tinyx[i]+=(i%5-2)/5;
+    if (tinyy[i]<shigh+sdown) {
+      tiny[i].style.top=tinyy[i]+"px";
+      tiny[i].style.left=tinyx[i]+"px";
+    }
+    else {
+      tiny[i].style.visibility="hidden";
+      tinyv[i]=0;
+      return;
+    }
+  }
+  else tiny[i].style.visibility="hidden";
+}
+
+document.onmousemove=mouse;
+function mouse(e) {
+  if (e) {
+    y=e.pageY;
+    x=e.pageX;
+  }
+  else {
+    set_scroll();
+    y=event.y+sdown;
+    x=event.x+sleft;
+  }
+}
+
+window.onscroll=set_scroll;
+function set_scroll() {
+  if (typeof(self.pageYOffset)=='number') {
+    sdown=self.pageYOffset;
+    sleft=self.pageXOffset;
+  }
+  else if (document.body && (document.body.scrollTop || document.body.scrollLeft)) {
+    sdown=document.body.scrollTop;
+    sleft=document.body.scrollLeft;
+  }
+  else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+    sleft=document.documentElement.scrollLeft;
+    sdown=document.documentElement.scrollTop;
+  }
+  else {
+    sdown=0;
+    sleft=0;
+  }
+}
+
+window.onresize=set_width;
+function set_width() {
+  var sw_min=999999;
+  var sh_min=999999;
+  if (document.documentElement && document.documentElement.clientWidth) {
+    if (document.documentElement.clientWidth>0) sw_min=document.documentElement.clientWidth;
+    if (document.documentElement.clientHeight>0) sh_min=document.documentElement.clientHeight;
+  }
+  if (typeof(self.innerWidth)=='number' && self.innerWidth) {
+    if (self.innerWidth>0 && self.innerWidth<sw_min) sw_min=self.innerWidth;
+    if (self.innerHeight>0 && self.innerHeight<sh_min) sh_min=self.innerHeight;
+  }
+  if (document.body.clientWidth) {
+    if (document.body.clientWidth>0 && document.body.clientWidth<sw_min) sw_min=document.body.clientWidth;
+    if (document.body.clientHeight>0 && document.body.clientHeight<sh_min) sh_min=document.body.clientHeight;
+  }
+  if (sw_min==999999 || sh_min==999999) {
+    sw_min=800;
+    sh_min=600;
+  }
+  swide=sw_min;
+  shigh=sh_min;
+}
+
+function createDiv(height, width) {
+  var div=document.createElement("div");
+  div.style.position="absolute";
+  div.style.height=height+"px";
+  div.style.width=width+"px";
+  div.style.overflow="hidden";
+  return (div);
+}
+
+function newColour() {
+  var c=new Array();
+  c[0]=255;
+  c[1]=Math.floor(Math.random()*256);
+  c[2]=Math.floor(Math.random()*(256-c[1]/2));
+  c.sort(function(){return (0.5 - Math.random());});
+  return ("rgb("+c[0]+", "+c[1]+", "+c[2]+")");
+}
+// ]]>
+</script>
+  </head>
+
+<body>
+   <body style="overflow-y: auto;">
+   <h1>Jangseungpo Regional Activation Project [Illustrations/2019]</h1>
+   <p>Participated as the illustrator of the "등대야 놀자!"
+     <br>which was a children's book made for a regional activation project
+     <br>of Geoje city, in South Korea. Worked on a total of 25 illustrations,
+     <br>including 7 illustrations on this page.</p>
+     <div class="w3-content w3-display-container" style="max-width:1200px">
+     <img class="mySlides" src="https://i.imgur.com/stNSPCz.jpg" style="width:1200px;" >
+     <img class="mySlides" src="https://i.imgur.com/lnTgYHO.jpg" style="width:1200px;">
+     <img class="mySlides" src="https://i.imgur.com/3xiA1LU.jpg" style="width:1200px;">
+     <img class="mySlides" src="https://i.imgur.com/fMlNf4O.jpg" style="width:1200px;">
+     <img class="mySlides" src="https://i.imgur.com/Q7UrVqL.jpg" style="width:1200px;">
+     <img class="mySlides" src="https://i.imgur.com/bi9Ey7l.jpg" style="width:1200px;">
+     <img class="mySlides" src="https://i.imgur.com/q3TSO0h.jpg" style="width:1200px;">
+     <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+     <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+     <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+     <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+     <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+     <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+      <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(4)"></span>
+       <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(5)"></span>
+        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(6)"></span>
+         <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(7)"></span>
+   </div>
+  </div>
+
+    <h1 style="margin-top:50px;">E:deist [Identity/Logo/2020]</h1>
+    <p>Client: E:deist</p>
+    <img src="https://i.imgur.com/VJ9kJby.png" style= "padding-left: 40px" width='700px' height='auto'>
+    <img src="https://i.imgur.com/GzFMtVx.png" style= "padding-left: 40px" width='700px' height='auto'>
+
+    <h1 style="margin-top:50px; margin-bottom:50px;">&#128190; Currently preparing for more works to be uploaded &#128190;</h1>
+
+
+  <script>
+  var slideIndex = 1;
+  showDivs(slideIndex);
+
+  function plusDivs(n) {
+    showDivs(slideIndex += n);
+  }
+
+  function currentDiv(n) {
+    showDivs(slideIndex = n);
+  }
+
+  function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demo");
+    if (n > x.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = x.length}
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" w3-white", "");
+    }
+    x[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " w3-white";
+  }
+  </script>
+
+
+</body>
+
+
+</html>

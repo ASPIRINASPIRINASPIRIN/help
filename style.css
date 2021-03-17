@@ -1,0 +1,125 @@
+body{ cursor: url('cursor.cur'), auto;}
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;900&display=swap');
+
+/*.GeneratedMarquee {
+   font-family: 'Changa One';
+   font-size: 2em;
+  font-style:italic;
+   line-height: 1.3em;
+   color: #16433D;
+  background-color:#000000;
+padding:0.5em;
+border: 1px solid #CCFF00;
+} */
+
+.eunseo1 {
+   font-size: 1.5em;
+   text-align: center;
+   /*line-height:1.3em;
+color:#ccff00;
+padding:0.5em;
+border: 1px solid #CCFF00; */
+}
+
+.eunseo2 {
+   font-size: 1.5em;
+   text-align: center;
+   color: #CCCCFF;
+}
+
+.eunseo3 {
+   font-size: 1.5em;
+}
+
+.eunseo4 {
+   font-size: 1.5em;
+   text-align: center;
+   color: #CCCCFF;
+}
+
+.eunseo5 {
+   font-size: 1.5em;
+}
+
+.eunseo6 {
+   font-size: 1.5em;
+   text-align: center;
+   color: #CCCCFF;
+}
+
+.eunseo7 {
+   font-size: 1.5em;
+}
+
+.eunseo8 {
+   font-size: 1.5em;
+   text-align: center;
+   color: #CCCCFF;
+}
+
+p {
+font-family: 'Raleway';
+/*top: 20px;*/
+text-align: center;
+font-size: 1.5em;
+font-weight: 900;
+line-height: normal;
+color: #CCCCFF;
+-webkit-text-stroke-width: 1.5px;
+-webkit-text-stroke-color: #16433D ;
+}
+
+p1 {
+   font-family: 'Raleway', sans-serif;
+   /*font-size: 1em;
+   /*margin: 0;
+   /* line-height: 2.1em; */
+   /*margin-left: auto;
+   margin-right: auto;
+   color: white;
+   text-align: center;
+   padding:1.5em;
+   */
+   display: inline-block;
+   max-width: 80%;
+   font-size: 1em;
+   /*white-space: nowrap;
+   /*margin: 0;
+   /* line-height: 2.1em; */
+   color: #16433D;
+   text-align: left;
+   padding:1.5em;
+}
+
+p2{
+  font-family: 'Raleway', sans-serif;
+  font-style: italic;
+  text-decoration: underline;
+  display: inline-block;
+  max-width: 80%;
+  font-size: 0.7em;
+  white-space: nowrap;
+  /*margin: 0;
+  /* line-height: 2.1em; */
+  margin-left: auto;
+  margin-right: auto;
+  color: #16433D;
+  text-align: left;
+  padding:2em;
+}
+/*p{
+  font-size:2em;
+  font-style:bold;
+  text-align: center;
+  color: white;
+
+}*/
+
+img {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 100px;
+   z-index: 1;
+}
